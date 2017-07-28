@@ -2,7 +2,7 @@
 #Sentiment Analysis Using textblob library
 from textblob import TextBlob
 def file():
-	#file path should be peovided in _File Path_
+	#file path should be provided in _File Path_
 	read = open("_FILE PATH_","r")
 	reading = read.readlines()
 	return reading
