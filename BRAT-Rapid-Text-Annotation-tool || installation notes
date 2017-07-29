@@ -1,0 +1,57 @@
+Brat Rapid Annotation Tool For Brat v1.3
+
+Step 1: Third Party Installation: 
+apt-get update
+apt-get install apache2-bin
+apt-get install apache2
+Above Installs apache group and bin to your linux repos
+apt-get update (update repos)
+
+Step 2: Installing brat manually : 
+Extract the downloaded file to brat directory and move into the directory
+Create data work 
+	mkdir  - p  data work
+3. then check Apache group
+ 	./apache-group.sh
+ you get the name of your Apache group that was created on the point of installation
+
+You need to change the Apache group for your brat tool  and make some changes in data and work folder directory you need to include your name directories inside brat directory accessible to Apache group by modifying the access points for your linux distros.
+
+ Modification is something like this:
+chmod -R ${Name} g+rwx data work 
+ If your system minutes multi user system then you can use another command  which is
+		chmod 777 data work
+ 
+Step 3:  Setting dependency
+
+ 	 check python - - version if it is not greater than 2.5 then you need to install the latest python
+Installing  UltraJSON and moving it to library folder of Brat toolkit
+	( cd server/lib/ && unzip ujson-1.18.zip && cd ujson-1.18 &&  python setup.py build && mv build/lib.*/ ../ujson )
+	If in case ultraJSON doesn't install, try SimpleJSON all included in the directory.
+
+Install it a after extracting it all in the brat directory
+
+
+/* --  try to install ultra json  as brat server works best here-- */
+
+
+Step 4: Final Installation :
+
+After all the above steps are over. 
+		Goto brat directory and start installations through
+		./install.sh
+
+		
+Installation should ask for username : editor password : annotate email : admin@example.com
+After installation complete you should have an error less page of terminal
+
+You need to set few things 
+Do an apt-get update in your /home to get all repos updated 
+Set a variable like APACHE_USER = ‘./apache-user.sh’  in your brat dir
+Do a service apache2 restart
+Now start standalone python program : python standalone.py
+
+
+
+
+Your installation is certainly complete.
